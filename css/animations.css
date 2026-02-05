@@ -1,0 +1,462 @@
+/**
+ * Ecopetróleo "Impulso Dominicano" - Animations
+ * Keyframe animations, scroll effects, and transitions
+ */
+
+/* ========================================
+   SCROLL REVEAL ANIMATIONS
+   ======================================== */
+
+/* Base state for animated elements */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity var(--duration-long) var(--ease-standard),
+                transform var(--duration-long) var(--ease-standard);
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger delays for children */
+.animate-stagger > *:nth-child(1) { transition-delay: 0ms; }
+.animate-stagger > *:nth-child(2) { transition-delay: 100ms; }
+.animate-stagger > *:nth-child(3) { transition-delay: 200ms; }
+.animate-stagger > *:nth-child(4) { transition-delay: 300ms; }
+.animate-stagger > *:nth-child(5) { transition-delay: 400ms; }
+.animate-stagger > *:nth-child(6) { transition-delay: 500ms; }
+.animate-stagger > *:nth-child(7) { transition-delay: 600ms; }
+.animate-stagger > *:nth-child(8) { transition-delay: 700ms; }
+
+/* Fade variations */
+.animate-fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.animate-fade-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.animate-fade-down {
+    opacity: 0;
+    transform: translateY(-40px);
+}
+
+.animate-fade-down.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.animate-fade-left {
+    opacity: 0;
+    transform: translateX(40px);
+}
+
+.animate-fade-left.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.animate-fade-right {
+    opacity: 0;
+    transform: translateX(-40px);
+}
+
+.animate-fade-right.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Scale animations */
+.animate-scale {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.animate-scale.is-visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.animate-scale-up {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+}
+
+.animate-scale-up.is-visible {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+/* ========================================
+   HERO ANIMATION SEQUENCE
+   ======================================== */
+.hero__background {
+    animation: hero-bg-fade 1s var(--ease-standard) forwards;
+}
+
+.hero__logo {
+    opacity: 0;
+    transform: scale(0.8);
+    animation: hero-logo-reveal 0.8s var(--ease-standard) 0.5s forwards;
+}
+
+.hero__title {
+    opacity: 0;
+    animation: hero-title-reveal 1s var(--ease-standard) 1s forwards;
+}
+
+.hero__tagline {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: hero-fade-up 0.8s var(--ease-standard) 1.5s forwards;
+}
+
+.hero__cta {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: hero-fade-up 0.8s var(--ease-standard) 2s forwards;
+}
+
+.hero__scroll-indicator {
+    opacity: 0;
+    animation: hero-fade-up 0.8s var(--ease-standard) 2.5s forwards;
+}
+
+@keyframes hero-bg-fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes hero-logo-reveal {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes hero-title-reveal {
+    0% {
+        opacity: 0;
+        clip-path: inset(0 100% 0 0);
+    }
+    100% {
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+@keyframes hero-fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   COUNTER ANIMATIONS
+   ======================================== */
+[data-counter] {
+    transition: none;
+}
+
+/* ========================================
+   PARALLAX EFFECTS
+   ======================================== */
+.parallax {
+    will-change: transform;
+}
+
+.parallax--slow {
+    --parallax-speed: 0.1;
+}
+
+.parallax--medium {
+    --parallax-speed: 0.2;
+}
+
+.parallax--fast {
+    --parallax-speed: 0.3;
+}
+
+/* ========================================
+   HOVER EFFECTS
+   ======================================== */
+.hover-lift {
+    transition: transform var(--duration-short) var(--ease-standard),
+                box-shadow var(--duration-short) var(--ease-standard);
+}
+
+.hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+}
+
+.hover-glow {
+    transition: box-shadow var(--duration-short) var(--ease-standard);
+}
+
+.hover-glow:hover {
+    box-shadow: var(--shadow-glow-gold);
+}
+
+.hover-scale {
+    transition: transform var(--duration-short) var(--ease-standard);
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+/* Image zoom on hover */
+.hover-zoom {
+    overflow: hidden;
+}
+
+.hover-zoom img {
+    transition: transform var(--duration-medium) var(--ease-standard);
+}
+
+.hover-zoom:hover img {
+    transform: scale(1.1);
+}
+
+/* ========================================
+   LOADING ANIMATIONS
+   ======================================== */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(-25%);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+}
+
+.animate-bounce {
+    animation: bounce 1s infinite;
+}
+
+/* ========================================
+   PROGRESS BAR ANIMATION
+   ======================================== */
+@keyframes progress-fill {
+    from {
+        width: 0;
+    }
+}
+
+.progress__fill.is-animated {
+    animation: progress-fill var(--duration-slower) var(--ease-standard) forwards;
+}
+
+/* ========================================
+   TEXT ANIMATIONS
+   ======================================== */
+@keyframes text-reveal {
+    from {
+        clip-path: inset(0 100% 0 0);
+    }
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+.animate-text-reveal {
+    animation: text-reveal 1s var(--ease-standard) forwards;
+}
+
+/* Typewriter effect placeholder - handled by JS */
+.typewriter {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid var(--color-gold);
+    animation: typewriter-cursor 0.7s step-end infinite;
+}
+
+@keyframes typewriter-cursor {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--color-gold); }
+}
+
+/* ========================================
+   MANIFESTO LINE ANIMATIONS
+   ======================================== */
+.manifesto__line {
+    opacity: 0;
+    transform: translateY(30px);
+    filter: blur(4px);
+    transition: opacity var(--duration-long) var(--ease-standard),
+                transform var(--duration-long) var(--ease-standard),
+                filter var(--duration-long) var(--ease-standard),
+                color var(--duration-short) var(--ease-standard);
+}
+
+.manifesto__line.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+/* Staggered reveal for manifesto lines */
+.manifesto__line:nth-child(1) { transition-delay: 0ms; }
+.manifesto__line:nth-child(2) { transition-delay: 150ms; }
+.manifesto__line:nth-child(3) { transition-delay: 300ms; }
+.manifesto__line:nth-child(4) { transition-delay: 450ms; }
+.manifesto__line:nth-child(5) { transition-delay: 600ms; }
+.manifesto__line:nth-child(6) { transition-delay: 750ms; }
+.manifesto__line:nth-child(7) { transition-delay: 900ms; }
+.manifesto__line:nth-child(8) { transition-delay: 1050ms; }
+
+/* ========================================
+   PAGE TRANSITIONS
+   ======================================== */
+.page-enter {
+    opacity: 0;
+}
+
+.page-enter-active {
+    opacity: 1;
+    transition: opacity var(--duration-medium) var(--ease-standard);
+}
+
+.page-exit {
+    opacity: 1;
+}
+
+.page-exit-active {
+    opacity: 0;
+    transition: opacity var(--duration-medium) var(--ease-standard);
+}
+
+/* ========================================
+   BACKGROUND ANIMATIONS
+   ======================================== */
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 15s ease infinite;
+}
+
+/* Floating particles effect placeholder */
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    33% { transform: translateY(-10px) rotate(5deg); }
+    66% { transform: translateY(5px) rotate(-5deg); }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* ========================================
+   NOTIFICATION / TOAST ANIMATIONS
+   ======================================== */
+@keyframes slide-in-right {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-out-right {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+.toast-enter {
+    animation: slide-in-right var(--duration-short) var(--ease-standard) forwards;
+}
+
+.toast-exit {
+    animation: slide-out-right var(--duration-short) var(--ease-standard) forwards;
+}
+
+/* ========================================
+   REDUCED MOTION
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .animate-on-scroll,
+    .animate-fade-up,
+    .animate-fade-down,
+    .animate-fade-left,
+    .animate-fade-right,
+    .animate-scale,
+    .animate-scale-up,
+    .manifesto__line {
+        opacity: 1;
+        transform: none;
+        filter: none;
+    }
+
+    .hero__background,
+    .hero__logo,
+    .hero__title,
+    .hero__tagline,
+    .hero__cta,
+    .hero__scroll-indicator {
+        opacity: 1;
+        transform: none;
+        animation: none;
+    }
+}

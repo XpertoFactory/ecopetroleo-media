@@ -1,0 +1,185 @@
+/**
+ * Ecopetróleo "Impulso Dominicano" - Design Tokens
+ * CSS Custom Properties (Variables)
+ */
+
+:root {
+    /* ========================================
+       PRIMARY COLORS (Ecopetróleo Brand)
+       ======================================== */
+    --color-eco-red: #E31837;
+    --color-eco-blue: #1E4D8C;
+    --color-eco-green-light: #5BBF4A;
+    --color-eco-green-medium: #00A651;
+    --color-eco-green-dark: #006838;
+
+    /* ========================================
+       CAMPAIGN COLORS (Impulso Dominicano)
+       ======================================== */
+    --color-gold: #F4A460;
+    --color-campo-green: #228B22;
+    --color-caribbean-sky: #87CEEB;
+    --color-earth-brown: #8B4513;
+    --color-sunset-orange: #FF7F50;
+
+    /* ========================================
+       UI COLORS
+       ======================================== */
+    --color-bg-dark: #0D1B2A;
+    --color-bg-darker: #070F18;
+    --color-bg-card: #142132;
+    --color-text-primary: #FFFFFF;
+    --color-text-secondary: #B0B0B0;
+    --color-text-dark: #1A1A2E;
+    --color-accent-hover: #E63950;
+    --color-success: #4CAF50;
+    --color-border-subtle: rgba(255, 255, 255, 0.1);
+    --color-border-medium: rgba(255, 255, 255, 0.2);
+
+    /* ========================================
+       TYPOGRAPHY
+       ======================================== */
+    /* Font Families */
+    --font-display: 'Bebas Neue', 'Impact', sans-serif;
+    --font-body: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    --font-accent: 'Playfair Display', 'Georgia', serif;
+    --font-mono: 'JetBrains Mono', 'Consolas', 'Monaco', monospace;
+
+    /* Font Sizes */
+    --text-xs: 0.75rem;      /* 12px */
+    --text-sm: 0.875rem;     /* 14px */
+    --text-base: 1rem;       /* 16px */
+    --text-lg: 1.125rem;     /* 18px */
+    --text-xl: 1.25rem;      /* 20px */
+    --text-2xl: 1.5rem;      /* 24px */
+    --text-3xl: 1.875rem;    /* 30px */
+    --text-4xl: 2.25rem;     /* 36px */
+    --text-5xl: 3rem;        /* 48px */
+    --text-6xl: 4rem;        /* 64px */
+    --text-7xl: 5rem;        /* 80px */
+    --text-8xl: 6rem;        /* 96px */
+    --text-9xl: 7.5rem;      /* 120px */
+
+    /* Font Weights */
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+
+    /* Line Heights */
+    --leading-none: 1;
+    --leading-tight: 1.25;
+    --leading-snug: 1.375;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.625;
+    --leading-loose: 1.8;
+
+    /* Letter Spacing */
+    --tracking-tighter: -0.05em;
+    --tracking-tight: -0.025em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.01em;
+    --tracking-wider: 0.02em;
+    --tracking-widest: 0.05em;
+
+    /* ========================================
+       SPACING
+       ======================================== */
+    --space-0: 0;
+    --space-1: 0.25rem;      /* 4px */
+    --space-2: 0.5rem;       /* 8px */
+    --space-3: 0.75rem;      /* 12px */
+    --space-4: 1rem;         /* 16px */
+    --space-5: 1.25rem;      /* 20px */
+    --space-6: 1.5rem;       /* 24px */
+    --space-8: 2rem;         /* 32px */
+    --space-10: 2.5rem;      /* 40px */
+    --space-12: 3rem;        /* 48px */
+    --space-16: 4rem;        /* 64px */
+    --space-20: 5rem;        /* 80px */
+    --space-24: 6rem;        /* 96px */
+    --space-32: 8rem;        /* 128px */
+
+    /* ========================================
+       LAYOUT
+       ======================================== */
+    --container-sm: 640px;
+    --container-md: 768px;
+    --container-lg: 1024px;
+    --container-xl: 1280px;
+    --container-2xl: 1536px;
+
+    /* ========================================
+       BORDERS
+       ======================================== */
+    --radius-none: 0;
+    --radius-sm: 0.125rem;   /* 2px */
+    --radius-md: 0.375rem;   /* 6px */
+    --radius-lg: 0.5rem;     /* 8px */
+    --radius-xl: 0.75rem;    /* 12px */
+    --radius-2xl: 1rem;      /* 16px */
+    --radius-full: 9999px;
+
+    /* ========================================
+       SHADOWS
+       ======================================== */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --shadow-glow-red: 0 0 20px rgba(227, 24, 55, 0.4);
+    --shadow-glow-gold: 0 0 20px rgba(244, 164, 96, 0.4);
+
+    /* ========================================
+       ANIMATIONS
+       ======================================== */
+    /* Timing Functions */
+    --ease-standard: cubic-bezier(0.4, 0.0, 0.2, 1);
+    --ease-dramatic: cubic-bezier(0.0, 0.0, 0.2, 1);
+    --ease-exit: cubic-bezier(0.4, 0.0, 1, 1);
+    --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+
+    /* Durations */
+    --duration-micro: 150ms;
+    --duration-short: 300ms;
+    --duration-medium: 500ms;
+    --duration-long: 800ms;
+    --duration-slower: 1200ms;
+
+    /* ========================================
+       Z-INDEX
+       ======================================== */
+    --z-behind: -1;
+    --z-base: 0;
+    --z-dropdown: 10;
+    --z-sticky: 20;
+    --z-fixed: 30;
+    --z-modal-backdrop: 40;
+    --z-modal: 50;
+    --z-popover: 60;
+    --z-tooltip: 70;
+
+    /* ========================================
+       GRADIENTS
+       ======================================== */
+    --gradient-hero: linear-gradient(135deg, var(--color-bg-dark) 0%, #1a2d44 50%, var(--color-eco-blue) 100%);
+    --gradient-red: linear-gradient(135deg, var(--color-eco-red) 0%, #B8132C 100%);
+    --gradient-gold: linear-gradient(135deg, var(--color-gold) 0%, #D4853F 100%);
+    --gradient-dark: linear-gradient(180deg, var(--color-bg-dark) 0%, var(--color-bg-darker) 100%);
+    --gradient-overlay: linear-gradient(180deg, transparent 0%, rgba(13, 27, 42, 0.9) 100%);
+}
+
+/* Dark mode is default - no need for media query */
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --duration-micro: 0ms;
+        --duration-short: 0ms;
+        --duration-medium: 0ms;
+        --duration-long: 0ms;
+        --duration-slower: 0ms;
+    }
+}
