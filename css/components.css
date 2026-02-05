@@ -819,3 +819,181 @@
     0%, 100% { transform: translateX(-50%) translateY(0); }
     50% { transform: translateX(-50%) translateY(10px); }
 }
+
+/* ========================================
+   VIDEO CONTAINER
+   ======================================== */
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+    background-color: #000;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-container--large {
+    max-width: 1200px;
+}
+
+.video-container--full {
+    max-width: none;
+    border-radius: 0;
+}
+
+/* ========================================
+   MODAL
+   ======================================== */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--duration-medium) var(--ease-standard),
+                visibility var(--duration-medium) var(--ease-standard);
+}
+
+.modal--open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal__backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    cursor: pointer;
+}
+
+.modal__container {
+    position: relative;
+    width: 90%;
+    height: 90%;
+    background-color: var(--color-bg-dark);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
+    transform: scale(0.9);
+    transition: transform var(--duration-medium) var(--ease-standard);
+}
+
+.modal--open .modal__container {
+    transform: scale(1);
+}
+
+.modal__close {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: var(--color-text-primary);
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color var(--duration-micro) var(--ease-standard),
+                border-color var(--duration-micro) var(--ease-standard),
+                transform var(--duration-micro) var(--ease-standard);
+}
+
+.modal__close:hover {
+    background-color: var(--color-eco-red);
+    border-color: var(--color-eco-red);
+    transform: scale(1.1);
+}
+
+.modal__content {
+    width: 100%;
+    height: 100%;
+}
+
+.modal__content iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Play Button Overlay for Cards */
+.card__image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    background: linear-gradient(135deg,
+        rgba(30, 77, 140, 0.8) 0%,
+        rgba(227, 24, 55, 0.8) 100%);
+    opacity: 1;
+    transition: opacity var(--duration-short) var(--ease-standard);
+}
+
+.card__image-overlay:hover {
+    opacity: 0.95;
+}
+
+.card__play-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-6);
+    background-color: var(--color-gold);
+    color: var(--color-bg-dark);
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: transform var(--duration-micro) var(--ease-standard),
+                box-shadow var(--duration-micro) var(--ease-standard);
+}
+
+.card__play-btn:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(244, 164, 96, 0.4);
+}
+
+.card__play-btn svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+.card__image--interactive {
+    position: relative;
+    cursor: pointer;
+}

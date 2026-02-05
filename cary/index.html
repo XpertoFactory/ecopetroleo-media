@@ -235,7 +235,16 @@
                             para volver a casa. Cada run es diferente. Cada muerte te hace más fuerte."
                         </blockquote>
                     </div>
-                    <div class="card__image" style="background: var(--gradient-hero);"></div>
+                    <div class="card__image card__image--interactive" style="background: var(--gradient-hero);" onclick="openGameModal()">
+                        <div class="card__image-overlay">
+                            <button class="card__play-btn" type="button">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                                Jugar el Juego
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="grid grid--3 animate-stagger">
@@ -554,9 +563,50 @@
         </div>
     </footer>
 
+    <!-- Game Modal -->
+    <div class="modal" id="gameModal">
+        <div class="modal__backdrop" onclick="closeGameModal()"></div>
+        <div class="modal__container">
+            <button class="modal__close" onclick="closeGameModal()" aria-label="Cerrar">×</button>
+            <div class="modal__content" id="gameModalContent">
+                <!-- iframe will be injected here -->
+            </div>
+        </div>
+    </div>
+
     <!-- JavaScript -->
     <script src="../js/main.js"></script>
     <script src="../js/nav.js"></script>
     <script src="../js/animations.js"></script>
+
+    <!-- Game Modal Script -->
+    <script>
+        const gameModal = document.getElementById('gameModal');
+        const gameModalContent = document.getElementById('gameModalContent');
+        const gameUrl = 'https://cary.xperto.media';
+
+        function openGameModal() {
+            // Create iframe when opening (better performance)
+            gameModalContent.innerHTML = `<iframe src="${gameUrl}" title="Cary's Voyage - Juego" allowfullscreen></iframe>`;
+            gameModal.classList.add('modal--open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGameModal() {
+            gameModal.classList.remove('modal--open');
+            document.body.style.overflow = '';
+            // Remove iframe after animation completes
+            setTimeout(() => {
+                gameModalContent.innerHTML = '';
+            }, 500);
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && gameModal.classList.contains('modal--open')) {
+                closeGameModal();
+            }
+        });
+    </script>
 </body>
 </html>
